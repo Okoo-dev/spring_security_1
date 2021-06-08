@@ -19,5 +19,10 @@ public class SecurityController {
     public void doMember() {
         System.out.println("logined member");
     }
+    
+    @GetMapping("/admin")
+    public void doAdmin() {
+        System.out.println("logined admin");
+    }
 	
 }
