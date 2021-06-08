@@ -8,6 +8,7 @@
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	
+	<!-- 스프링 버전보다 시큐리티 버전이 더 낮아야함 스프링 5.0.7, 시큐리티 5.0.6 -->
 	<properties>
 		<java-version>1.8</java-version>
 		<org.springframework-version>5.0.7.RELEASE</org.springframework-version>
@@ -217,6 +218,7 @@
 		</dependency>
 
 		<!-- Spring Security -->
+		<!-- 디폴트값으로 기본적인 라이브러리를 가져와야함 core,web,config,taglibs-->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
