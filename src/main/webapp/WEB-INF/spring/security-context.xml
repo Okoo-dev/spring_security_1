@@ -10,7 +10,20 @@
 		<intercept-url pattern="/security/all" access="permitAll" />
 		<intercept-url pattern="/security/member" access="hasRole('ROLE_MEMBER')" />
 		<intercept-url pattern="/security/admin" access="hasRole('ROLE_ADMIN')" />
-		<form-login />
+		
+		<!-- 이건 디폴트 값 화면 이부분을 커스텀하면됨! -->
+		<!-- <form-login /> -->
+		
+		<!-- default-target-url: 로그인 성공시 보여줄 url -->
+		<!-- authentication-failure-url: 로그인 실패시 보여줄 url get방식 -->
+		 <form-login login-page="/login/loginForm"
+              default-target-url="/"
+              authentication-failure-url="/login/loginForm?error"
+              username-parameter="id"
+              password-parameter="password" />
+
+        <logout logout-url="/logout" logout-success-url="/" /> 
+		
 		<!-- 403 에러 처리 -->
         <access-denied-handler error-page="/security/accessError"/>
 	</http>
