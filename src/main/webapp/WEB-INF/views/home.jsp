@@ -13,10 +13,12 @@
 
 <h1>메인페이지</h1>
 
+<!-- 로그인이 안된 유저 -->
 <sec:authorize access="isAnonymous()">
    <p><a href="<c:url value="/login/loginForm" />">로그인</a></p>
 </sec:authorize>
 
+<!-- 로그인이 된 유저 -->
 <sec:authorize access="isAuthenticated()">
    <form:form action="${pageContext.request.contextPath}/logout" method="POST">
        <input type="submit" value="로그아웃" />
@@ -25,7 +27,7 @@
 </sec:authorize>
 
 <h3>
-<%--     [<a href="<c:url value="/user/userForm" />">회원가입</a>] --%>
+    [<a href="<c:url value="/user/userForm" />">회원가입</a>]
     [<a href="<c:url value="/user/userHome" />">유저 홈</a>]
     [<a href="<c:url value="/admin/adminHome" />">관리자 홈</a>]
 <%--     [<a href="<c:url value="/restful/" />">게시판</a>] --%>
