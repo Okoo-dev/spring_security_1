@@ -47,7 +47,7 @@ public class HomeController {
     @GetMapping("/login/loginForm")
     public String loginForm() {
         System.out.println("Welcom Login Form");
-        return "login/loginForm2";
+        return "login/loginForm";
     }
 
     @GetMapping("/user/userHome")
