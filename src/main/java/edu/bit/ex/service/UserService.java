@@ -7,7 +7,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import edu.bit.ex.mapper.UserMapper;
 import edu.bit.ex.vo.UserVO;
-
+import lombok.NoArgsConstructor;
+import lombok.extern.log4j.Log4j;
+@Log4j
+@NoArgsConstructor
 @Service
 public class UserService {
     
@@ -28,5 +31,4 @@ public class UserService {
        userMapper.insertAuthorities(userVO);
     }
     
-    public UserService() {};
 }

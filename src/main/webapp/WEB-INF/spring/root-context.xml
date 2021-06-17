@@ -6,7 +6,7 @@
 	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
-	
+
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		<property name="driverClassName"
@@ -23,11 +23,21 @@
 		<constructor-arg ref="hikariConfig" />
 	</bean>
 
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-      <property name="dataSource" ref="dataSource"/>
-      <!-- <property name="mapperLocations" value="classpath:/edu/bit/board/mapper/*.xml" /> -->  
-   </bean>
-   
-   <mybatis-spring:scan base-package="edu.bit.ex.mapper" /> 
-		
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<!-- <property name="mapperLocations" value="classpath:/edu/bit/board/mapper/*.xml" 
+			/> -->
+	</bean>
+
+	<mybatis-spring:scan
+		base-package="edu.bit.ex.mapper" />
+
+
+	<!-- 트랜잭션 매니저를 데이터베이스에 연동 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
 </beans>
